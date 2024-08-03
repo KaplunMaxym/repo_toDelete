@@ -1,9 +1,21 @@
 # Спосіб 1 Використання команди cherry-pick та тимчасової гілки і гилки по якій ми будемо працювати
-#### Створіть тимчасову гілку з feature-branch:
+#### В нас є гілка з 3-ма комітати temp-branch
+![nodejs.png](referenses/r5.png)
+#### Створіть тимчасову гілку з feature-branch на подобі main буде пуста:
 ```bash
-git checkout -b temp-branch feature-branch
+git checkout -b feature-branch main
 ```
-
+#### В гілці feature-branch застосовуємо коміт до прикладу B командою:
+#### Перед тим в гілці temp-branch застосуємо команду git log для того щоб отримати - <commit-hash-of-B>
+```bash
+git cherry-pick <commit-hash-of-B>
+```
+#### В результаті на гілці локальній яку ми зсторили появляться зміни лише одного коміту
+![nodejs.png](referenses/r6.png)
+#### Далі до прикладу ми можумо змерджити цю гілку з нелокальною для того щоб закунти на репозиторій до main
+```bash
+git merge main
+```
 
 # Спосіб 2 Вибір одного коміту з багатьох
 ## тут без видалення інших комітів не обійтись
